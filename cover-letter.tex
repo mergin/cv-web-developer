@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{styles/moderncvweb}
+
+\begin{document}
+\input{sections/profile}
+
+\panelbox{%
+  {\fontsize{24}{28}\selectfont\bfseries \ProfileName}\par
+  \vspace{0.2em}
+  {\large\bfseries\color{accent}\ProfileTitle}\par
+  \vspace{0.6em}
+  \contactpill{\cvMailIcon}{\ProfileEmail}{mailto:\ProfileEmail}\hspace{0.4em}
+  \contactpill{\cvPhoneIcon}{\ProfilePhone}{tel:+15550100000}\hspace{0.4em}
+  \contactpill{\cvGitHubIcon}{\ProfileGitHub}{https://github.com/alexparkerdev}
+}
+
+\vspace{1.1em}
+\hfill \smallmuted{\today}
+
+\vspace{1.2em}
+\letterrecipient{Hiring Manager}{Product \& Engineering Team}{Example Studio}{Remote / Hybrid}
+
+\vspace{1em}
+Dear Hiring Manager,
+
+I am excited to apply for a web developer role with a team that values clean product thinking, modern engineering, and polished user experiences. My background combines frontend craftsmanship with practical backend delivery, allowing me to ship fast, accessible, and business-focused products from concept to production.
+
+Across my recent roles, I have built scalable interfaces with React, Next.js, TypeScript, and design systems while collaborating closely with designers, stakeholders, and cross-functional teams. I focus on performance, maintainability, and user empathy, whether I am improving Core Web Vitals, architecting reusable components, or delivering developer-friendly tooling.
+
+What I would bring to your team is a blend of product sense and execution: strong frontend foundations, a modern JavaScript ecosystem mindset, and a habit of documenting and refining workflows so teams can move with more confidence. I enjoy turning complex requirements into simple interfaces and reliable delivery.
+
+Thank you for your time and consideration. I would welcome the opportunity to discuss how my experience can support your product goals.
+
+\vspace{1em}
+Sincerely,
+
+\vspace{1.2em}
+{\bfseries \ProfileName}\par
+\smallmuted{\ProfileTitle}
+
+\end{document}

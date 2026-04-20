@@ -1,0 +1,103 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvweb}[2026/04/20 Minimal web developer CV theme]
+
+\RequirePackage[a4paper,margin=1.45cm]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[table]{xcolor}
+\RequirePackage{array}
+\RequirePackage{parskip}
+\RequirePackage{enumitem}
+\RequirePackage{tabularx}
+\RequirePackage{tikz}
+\RequirePackage{titlesec}
+\RequirePackage{hyperref}
+\RequirePackage{ragged2e}
+\RequirePackage{paracol}
+
+\newif\ifcwhasicons
+\IfFileExists{fontawesome5.sty}{%
+  \RequirePackage{fontawesome5}
+  \cwhasiconstrue
+}{%
+  \cwhasiconsfalse
+}
+
+\definecolor{accent}{HTML}{3563E9}
+\definecolor{ink}{HTML}{202531}
+\definecolor{muted}{HTML}{6F7A8B}
+\definecolor{line}{HTML}{DCE3F0}
+\definecolor{panel}{HTML}{F7F9FC}
+\color{ink}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\urlstyle{same}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+
+\titleformat{\section}{\Large\bfseries\color{ink}}{}{0em}{}[\vspace{0.25em}\color{accent}\titlerule]
+\titlespacing*{\section}{0pt}{0.9em}{0.6em}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=0.2em,topsep=0.2em}
+
+\newcommand{\smallmuted}[1]{{\small\color{muted}#1}}
+\newcommand{\caps}[1]{{\small\bfseries\color{accent}#1}}
+
+\newcommand{\cvPhoneIcon}{\ifcwhasicons\faPhone\else\textbf{P}\fi}
+\newcommand{\cvMailIcon}{\ifcwhasicons\faEnvelope\else\textbf{E}\fi}
+\newcommand{\cvMapIcon}{\ifcwhasicons\faMapMarker*\else\textbf{A}\fi}
+\newcommand{\cvGitHubIcon}{\ifcwhasicons\faGithub\else\textbf{G}\fi}
+
+\newcommand{\panelbox}[1]{%
+  \noindent
+  \setlength{\fboxsep}{12pt}%
+  \fcolorbox{line}{panel}{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+      #1
+    \end{minipage}
+  }%
+}
+
+\newcommand{\contactpill}[3]{%
+  \setlength{\fboxsep}{6pt}%
+  \colorbox{white}{\small\href{#3}{#1\enspace #2}}%
+}
+
+\newcommand{\skilldots}[1]{%
+  \begin{tikzpicture}[baseline=-0.6ex]
+    \foreach \i in {1,...,5} {
+      \ifnum\i>#1
+        \fill[line] (\i*0.24,0) circle (0.08);
+      \else
+        \fill[accent] (\i*0.24,0) circle (0.08);
+      \fi
+    }
+  \end{tikzpicture}%
+}
+
+\newcommand{\cvskill}[2]{%
+  \begin{tabularx}{\linewidth}{@{}Xr@{}}
+    \textbf{#1} & \skilldots{#2}
+  \end{tabularx}\par\vspace{0.22em}
+}
+
+\newcommand{\cventry}[4]{%
+  {\bfseries #1}\hfill{\smallmuted{#3}}\par
+  {\color{accent}#2}\par
+  \smallmuted{#4}\par
+}
+
+\newcommand{\projectentry}[3]{%
+  {\bfseries #1}\hfill{\smallmuted{#2}}\par
+  #3\par
+}
+
+\newcommand{\letterrecipient}[4]{%
+  {\bfseries #1}\par
+  \smallmuted{#2}\par
+  \smallmuted{#3}\par
+  \smallmuted{#4}\par
+}

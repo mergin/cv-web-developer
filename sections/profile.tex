@@ -1,0 +1,22 @@
+\newcommand{\ProfileName}{Alex Parker}
+\newcommand{\ProfileTitle}{Senior Frontend \& Web Developer}
+\newcommand{\ProfilePhone}{+1 555 010 000}
+\newcommand{\ProfileEmail}{alex.parker.dev@example.com}
+\newcommand{\ProfileAddress}{Madrid, Spain}
+\newcommand{\ProfileGitHub}{github.com/alexparkerdev}
+\newcommand{\ProfileSummary}{Frontend-focused web developer with 7+ years of experience building fast, accessible, and conversion-driven digital products. Strong in React ecosystems, design systems, and collaborating closely with product and design teams to deliver clean user experiences.}
+
+\newcommand{\renderprofileheader}{%
+  \panelbox{%
+    {\fontsize{28}{32}\selectfont\bfseries \ProfileName}\par
+    \vspace{0.15em}
+    {\large\bfseries\color{accent}\ProfileTitle}\par
+    \vspace{0.55em}
+    \smallmuted{\ProfileSummary}\par
+    \vspace{0.75em}
+    \begin{tabular}{@{}ll@{}}
+      \contactpill{\cvPhoneIcon}{\ProfilePhone}{tel:+15550100000} & \contactpill{\cvMailIcon}{\ProfileEmail}{mailto:\ProfileEmail}\\[0.45em]
+      \contactpill{\cvMapIcon}{\ProfileAddress}{https://maps.google.com/?q=Madrid,Spain} & \contactpill{\cvGitHubIcon}{\ProfileGitHub}{https://github.com/alexparkerdev}
+    \end{tabular}
+  }
+}
