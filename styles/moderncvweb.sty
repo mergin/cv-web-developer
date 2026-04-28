@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{moderncvweb}[2026/04/20 Minimal web developer CV theme]
 
-\RequirePackage[a4paper,margin=1.45cm]{geometry}
+\RequirePackage[a4paper,margin=1.55cm]{geometry}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{lmodern}
@@ -25,31 +25,38 @@
   \cwhasiconsfalse
 }
 
-\definecolor{accent}{HTML}{3563E9}
-\definecolor{ink}{HTML}{202531}
-\definecolor{muted}{HTML}{6F7A8B}
-\definecolor{line}{HTML}{DCE3F0}
-\definecolor{panel}{HTML}{F7F9FC}
+\definecolor{accent}{HTML}{2F2F32}
+\definecolor{ink}{HTML}{222326}
+\definecolor{muted}{HTML}{68696D}
+\definecolor{line}{HTML}{BDBEC2}
+\definecolor{panel}{HTML}{F2F2F4}
 \color{ink}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0pt}
 \urlstyle{same}
-\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+\hypersetup{colorlinks=true,urlcolor=ink,linkcolor=ink}
 
-\titleformat{\section}{\Large\bfseries\color{ink}}{}{0em}{}[\vspace{0.25em}\color{accent}\titlerule]
-\titlespacing*{\section}{0pt}{0.9em}{0.6em}
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{ink}}
+  {}
+  {0em}
+  {\MakeUppercase}
+  [\vspace{0.15em}{\color{ink}\rule{1.8cm}{0.45pt}}]
+\titlespacing*{\section}{0pt}{0.75em}{0.55em}
 
-\setlist[itemize]{leftmargin=1.2em,itemsep=0.2em,topsep=0.2em}
+\setlist[itemize]{leftmargin=1.1em,itemsep=0.15em,topsep=0.15em}
 
 \newcommand{\smallmuted}[1]{{\small\color{muted}#1}}
-\newcommand{\caps}[1]{{\small\bfseries\color{accent}#1}}
+\newcommand{\caps}[1]{{\footnotesize\bfseries\MakeUppercase{#1}}}
 
 \newcommand{\cvPhoneIcon}{\ifcwhasicons\faPhone\else\textbf{P}\fi}
 \newcommand{\cvMailIcon}{\ifcwhasicons\faEnvelope\else\textbf{E}\fi}
 \newcommand{\cvMapIcon}{\ifcwhasicons\faMapMarker*\else\textbf{A}\fi}
 \newcommand{\cvGitHubIcon}{\ifcwhasicons\faGithub\else\textbf{G}\fi}
+
+\newcommand{\topruleline}{\noindent\color{ink}\rule{\linewidth}{1.2pt}\par}
 
 \newcommand{\panelbox}[1]{%
   \noindent
@@ -66,33 +73,32 @@
   \colorbox{white}{\small\href{#3}{#1\enspace #2}}%
 }
 
-\newcommand{\skilldots}[1]{%
-  \begin{tikzpicture}[baseline=-0.6ex]
-    \foreach \i in {1,...,5} {
-      \ifnum\i>#1
-        \fill[line] (\i*0.24,0) circle (0.08);
-      \else
-        \fill[accent] (\i*0.24,0) circle (0.08);
-      \fi
-    }
-  \end{tikzpicture}%
-}
-
 \newcommand{\cvskill}[2]{%
   \begin{tabularx}{\linewidth}{@{}Xr@{}}
-    \textbf{#1} & \skilldots{#2}
-  \end{tabularx}\par\vspace{0.22em}
+    \textbf{#1} &
+    \begin{tikzpicture}[baseline=-0.6ex]
+      \fill[line] (0,0) rectangle (2.1,0.085);
+      \fill[ink] (0,0) rectangle ({(#2/5)*2.1},0.085);
+    \end{tikzpicture}
+  \end{tabularx}\par\vspace{0.28em}
 }
 
 \newcommand{\cventry}[4]{%
-  {\bfseries #1}\hfill{\smallmuted{#3}}\par
-  {\color{accent}#2}\par
-  \smallmuted{#4}\par
+  \begin{minipage}[t]{0.36\linewidth}
+    {\bfseries #2}\par
+    \smallmuted{#4}\par
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.61\linewidth}
+    {\bfseries\MakeUppercase{#1}}\par
+    \smallmuted{#3}\par
+  \end{minipage}\par
+  \vspace{0.2em}
 }
 
 \newcommand{\projectentry}[3]{%
-  {\bfseries #1}\hfill{\smallmuted{#2}}\par
-  #3\par
+  {\bfseries\MakeUppercase{#1}}\hfill{\smallmuted{#2}}\par
+  {\small #3}\par
+  \vspace{0.25em}
 }
 
 \newcommand{\letterrecipient}[4]{%
@@ -101,3 +107,5 @@
   \smallmuted{#3}\par
   \smallmuted{#4}\par
 }
+
+\newcommand{\entrydetail}[1]{{\small #1\par\vspace{0.6em}}}

@@ -7,16 +7,20 @@
 \newcommand{\ProfileSummary}{Frontend-focused web developer with 7+ years of experience building fast, accessible, and conversion-driven digital products. Strong in React ecosystems, design systems, and collaborating closely with product and design teams to deliver clean user experiences.}
 
 \newcommand{\renderprofileheader}{%
-  \panelbox{%
-    {\fontsize{28}{32}\selectfont\bfseries \ProfileName}\par
-    \vspace{0.15em}
-    {\large\bfseries\color{accent}\ProfileTitle}\par
-    \vspace{0.55em}
-    \smallmuted{\ProfileSummary}\par
-    \vspace{0.75em}
-    \begin{tabular}{@{}ll@{}}
-      \contactpill{\cvPhoneIcon}{\ProfilePhone}{tel:+15550100000} & \contactpill{\cvMailIcon}{\ProfileEmail}{mailto:\ProfileEmail}\\[0.45em]
-      \contactpill{\cvMapIcon}{\ProfileAddress}{https://maps.google.com/?q=Madrid,Spain} & \contactpill{\cvGitHubIcon}{\ProfileGitHub}{https://github.com/alexparkerdev}
-    \end{tabular}
-  }
+  \topruleline
+  \vspace{0.75em}
+  \begin{minipage}[t]{0.62\linewidth}
+    {\fontsize{30}{34}\selectfont\MakeUppercase{\ProfileName}}\par
+    \vspace{0.18em}
+    {\large \ProfileTitle}\par
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.34\linewidth}
+    \raggedleft
+    \small \ProfilePhone\enspace \cvPhoneIcon\par
+    \small \href{mailto:\ProfileEmail}{\ProfileEmail}\enspace \cvMailIcon\par
+    \small \ProfileAddress\enspace \cvMapIcon\par
+    \small \href{https://\ProfileGitHub}{\ProfileGitHub}\enspace \cvGitHubIcon\par
+  \end{minipage}\par
+  \vspace{0.7em}
+  \noindent\color{ink}\rule{\linewidth}{0.55pt}\par
 }

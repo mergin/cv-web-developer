@@ -6,18 +6,26 @@
 
 \renderprofileheader
 
-\vspace{0.6em}
+\vspace{0.55em}
 
-\columnratio{0.34,0.66}
+\setlength{\columnsep}{1.1cm}
+\setlength{\columnseprule}{0.45pt}
+\columnratio{0.67,0.33}
 \begin{paracol}{2}
+\input{sections/work-experience}
+\input{sections/education}
+\input{sections/projects}
+
+\switchcolumn
+\section{Profile}
+\smallmuted{\RaggedRight\ProfileSummary\par}
+\vspace{0.55em}
 \input{sections/skills}
 \vspace{0.35em}
 \input{sections/languages}
-
-\switchcolumn
-\input{sections/work-experience}
-\input{sections/projects}
-\input{sections/education}
+\vspace{0.35em}
+\section{References}
+\smallmuted{Available on request.}\par
 \end{paracol}
 
 \end{document}
