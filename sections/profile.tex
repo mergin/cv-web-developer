@@ -1,3 +1,7 @@
+% =========================
+% Profile Data Definitions
+% =========================
+% Centralized personal fields reused by CV and cover-letter templates.
 \newcommand{\ProfileName}{Alex Parker}
 \newcommand{\ProfileTitle}{Senior Frontend \& Web Developer}
 \newcommand{\ProfilePhone}{+1 555 010 000}
@@ -6,21 +10,55 @@
 \newcommand{\ProfileGitHub}{github.com/alexparkerdev}
 \newcommand{\ProfileSummary}{Frontend-focused web developer with 7+ years of experience building fast, accessible, and conversion-driven digital products. Strong in React ecosystems, design systems, and collaborating closely with product and design teams to deliver clean user experiences.}
 
+% =====================
+% Shared Profile Header
+% =====================
+% Renders a two-column header used by both cv.tex and cover-letter.tex.
+% Left column: name + role.
+% Right column: contact information aligned to the right.
 \newcommand{\renderprofileheader}{%
-  \topruleline
-  \vspace{0.75em}
-  \begin{minipage}[t]{0.62\linewidth}
-    {\fontsize{30}{34}\selectfont\MakeUppercase{\ProfileName}}\par
-    \vspace{0.18em}
-    {\large \ProfileTitle}\par
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.34\linewidth}
-    \raggedleft
-    \small \ProfilePhone\enspace \cvPhoneIcon\par
-    \small \href{mailto:\ProfileEmail}{\ProfileEmail}\enspace \cvMailIcon\par
-    \small \ProfileAddress\enspace \cvMapIcon\par
-    \small \href{https://\ProfileGitHub}{\ProfileGitHub}\enspace \cvGitHubIcon\par
-  \end{minipage}\par
-  \vspace{0.7em}
-  \noindent\color{ink}\rule{\linewidth}{0.55pt}\par
+  % Top horizontal rule above identity/contact block.
+  \topruleline%
+  % Vertical breathing room between top rule and content row.
+  \vspace{0.7em}%
+
+  % Left identity column.
+  % Width split with the right column is 0.58 / 0.38 (plus hfill gap).
+  \begin{minipage}[t]{0.58\linewidth}%
+    % Ensure top alignment baseline for the minipage.
+    \vspace{0pt}%
+    % Primary identity line.
+    {\fontsize{30}{34}\selectfont\MakeUppercase{\ProfileName}}\par%
+    % Space between name and title.
+    \vspace{0.18em}%
+    % Professional title/subtitle.
+    {\large \ProfileTitle}\par%
+  \end{minipage}\hfill%
+
+  % Right contact column.
+  \begin{minipage}[t]{0.38\linewidth}%
+    % Ensure top alignment baseline for the minipage.
+    \vspace{0pt}%
+    % Right-align contact lines and icons.
+    \raggedleft%
+    % Phone.
+    \small \ProfilePhone\enspace \cvPhoneIcon\par%
+    % Vertical rhythm between contact items.
+    \vspace{0.30em}%
+    % Email.
+    \small \href{mailto:\ProfileEmail}{\ProfileEmail}\enspace \cvMailIcon\par%
+    % Vertical rhythm between contact items.
+    \vspace{0.30em}%
+    % Location.
+    \small \ProfileAddress\enspace \cvMapIcon\par%
+    % Vertical rhythm between contact items.
+    \vspace{0.30em}%
+    % GitHub profile link.
+    \small \href{https://\ProfileGitHub}{\ProfileGitHub}\enspace \cvGitHubIcon\par%
+  \end{minipage}\par%
+
+  % Space before lower divider line.
+  \vspace{0.62em}%
+  % Bottom horizontal rule beneath the header block.
+  \noindent\color{ink}\rule{\linewidth}{0.55pt}\par%
 }

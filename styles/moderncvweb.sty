@@ -38,13 +38,20 @@
 \urlstyle{same}
 \hypersetup{colorlinks=true,urlcolor=ink,linkcolor=ink}
 
+\newlength{\cventryleftwidth}
+\newlength{\cventryrightwidth}
+\newlength{\cventrygap}
+\setlength{\cventryleftwidth}{0.36\linewidth}
+\setlength{\cventryrightwidth}{0.61\linewidth}
+\setlength{\cventrygap}{0.03\linewidth}
+
 \titleformat{\section}
   {\normalfont\large\bfseries\color{ink}}
   {}
   {0em}
   {\MakeUppercase}
-  [\vspace{0.15em}{\color{ink}\rule{1.8cm}{0.45pt}}]
-\titlespacing*{\section}{0pt}{0.75em}{0.55em}
+  [\vspace{-0.28em}{\color{ink}\rule{1.8cm}{0.8pt}}]
+\titlespacing*{\section}{0pt}{0.75em}{0.1em}
 
 \setlist[itemize]{leftmargin=1.1em,itemsep=0.15em,topsep=0.15em}
 
@@ -84,15 +91,15 @@
 }
 
 \newcommand{\cventry}[4]{%
-  \begin{minipage}[t]{0.36\linewidth}
+  \begin{minipage}[t]{\cventryleftwidth}
     {\bfseries #2}\par
     \smallmuted{#4}\par
   \end{minipage}\hfill
-  \begin{minipage}[t]{0.61\linewidth}
+  \begin{minipage}[t]{\cventryrightwidth}
     {\bfseries\MakeUppercase{#1}}\par
     \smallmuted{#3}\par
   \end{minipage}\par
-  \vspace{0.2em}
+  \vspace{0.1em}
 }
 
 \newcommand{\projectentry}[3]{%
@@ -108,4 +115,4 @@
   \smallmuted{#4}\par
 }
 
-\newcommand{\entrydetail}[1]{{\small #1\par\vspace{0.6em}}}
+\newcommand{\entrydetail}[1]{{\small #1\par\vspace{0.5em}}}
