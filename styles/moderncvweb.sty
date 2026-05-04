@@ -1,10 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{moderncvweb}[2026/04/20 Minimal web developer CV theme]
 
+% Page geometry and font configuration.
 \RequirePackage[a4paper,margin=1.55cm]{geometry}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[sfdefault]{roboto}
+
+% General typography and layout helpers.
 \RequirePackage{microtype}
 \RequirePackage[table]{xcolor}
 \RequirePackage{array}
@@ -17,6 +20,8 @@
 \RequirePackage{ragged2e}
 \RequirePackage{paracol}
 
+% Optional icon support. When Font Awesome is unavailable, the theme falls back
+% to plain text markers so the documents still compile.
 \newif\ifcwhasicons
 \IfFileExists{fontawesome5.sty}{%
   \RequirePackage{fontawesome5}
@@ -25,6 +30,7 @@
   \cwhasiconsfalse
 }
 
+% Shared visual palette for headings, body text, dividers, and panels.
 \definecolor{accent}{HTML}{2F2F32}
 \definecolor{ink}{HTML}{222326}
 \definecolor{muted}{HTML}{68696D}
@@ -32,12 +38,14 @@
 \definecolor{panel}{HTML}{F2F2F4}
 \color{ink}
 
+% Global document defaults for the clean CV layout.
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0pt}
 \urlstyle{same}
 \hypersetup{colorlinks=true,urlcolor=ink,linkcolor=ink}
 
+% Widths used by two-column CV entry macros.
 \newlength{\cventryleftwidth}
 \newlength{\cventryrightwidth}
 \newlength{\cventrygap}
@@ -45,26 +53,34 @@
 \setlength{\cventryrightwidth}{0.61\linewidth}
 \setlength{\cventrygap}{0.03\linewidth}
 
+% Section headings use uppercase labels with a short underline accent.
 \titleformat{\section}
   {\normalfont\large\bfseries\color{ink}}
   {}
   {0em}
   {\MakeUppercase}
-  [\vspace{-0.28em}{\color{ink}\rule{1.8cm}{0.8pt}}]
-\titlespacing*{\section}{0pt}{0.75em}{0.1em}
+  [\vspace{-1.0em}{\color{ink}\rule{1.8cm}{0.8pt}}]
+\titlespacing*{\section}{0pt}{0.75em}{2em}
 
+% Compact bullet spacing better suited for resume-style content density.
 \setlist[itemize]{leftmargin=1.1em,itemsep=0.15em,topsep=0.15em}
 
+% Small muted helper for dates, locations, and supporting metadata.
 \newcommand{\smallmuted}[1]{{\small\color{muted}#1}}
+
+% Uppercase helper for small labels and pill-style headings.
 \newcommand{\caps}[1]{{\footnotesize\bfseries\MakeUppercase{#1}}}
 
+% Contact icons with text fallbacks for environments without Font Awesome.
 \newcommand{\cvPhoneIcon}{\ifcwhasicons\faPhone\else\textbf{P}\fi}
 \newcommand{\cvMailIcon}{\ifcwhasicons\faEnvelope\else\textbf{E}\fi}
 \newcommand{\cvMapIcon}{\ifcwhasicons\faMapMarker*\else\textbf{A}\fi}
 \newcommand{\cvGitHubIcon}{\ifcwhasicons\faGithub\else\textbf{G}\fi}
 
+% Full-width rule used above the profile header.
 \newcommand{\topruleline}{\noindent\color{ink}\rule{\linewidth}{1.2pt}\par}
 
+% Framed content box used for summary or highlighted content blocks.
 \newcommand{\panelbox}[1]{%
   \noindent
   \setlength{\fboxsep}{12pt}%
@@ -75,21 +91,27 @@
   }%
 }
 
+% Small inline chip for optional contact or metadata links.
 \newcommand{\contactpill}[3]{%
   \setlength{\fboxsep}{6pt}%
   \colorbox{white}{\small\href{#3}{#1\enspace #2}}%
 }
 
+% Skill row with a text label and a minimalist horizontal proficiency bar.
 \newcommand{\cvskill}[2]{%
   \begin{tabularx}{\linewidth}{@{}Xr@{}}
     \textbf{#1} &
     \begin{tikzpicture}[baseline=-0.6ex]
+      % Background track.
       \fill[line] (0,0) rectangle (2.1,0.085);
+      % Filled portion scaled from a 1-5 rating.
       \fill[ink] (0,0) rectangle ({(#2/5)*2.1},0.085);
     \end{tikzpicture}
   \end{tabularx}\par\vspace{0.28em}
 }
 
+% Standard two-column CV entry.
+% #1 role/title, #2 company or institution, #3 date/location line, #4 support line.
 \newcommand{\cventry}[4]{%
   \begin{minipage}[t]{\cventryleftwidth}
     {\bfseries #2}\par
@@ -102,12 +124,14 @@
   \vspace{0.1em}
 }
 
+% Project entry with project name, date range, and short description.
 \newcommand{\projectentry}[3]{%
   {\bfseries\MakeUppercase{#1}}\hfill{\smallmuted{#2}}\par
   {\small #3}\par
   \vspace{0.25em}
 }
 
+% Recipient block for the cover letter heading.
 \newcommand{\letterrecipient}[4]{%
   {\bfseries #1}\par
   \smallmuted{#2}\par
@@ -115,4 +139,5 @@
   \smallmuted{#4}\par
 }
 
+% Small body-text helper used for standalone detail paragraphs.
 \newcommand{\entrydetail}[1]{{\small #1\par\vspace{0.5em}}}
