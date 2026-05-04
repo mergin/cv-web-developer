@@ -72,6 +72,18 @@ To build and clean intermediate files when using `latexmk`:
 bash ./scripts/build.sh
 ```
 
+To clean intermediate files (keeps generated PDFs):
+
+```bash
+bash ./scripts/build.sh clean
+```
+
+To see available commands:
+
+```bash
+bash ./scripts/build.sh --help
+```
+
 ### Option 3: Manual commands
 
 If you prefer compiling manually:
