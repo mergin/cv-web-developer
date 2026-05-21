@@ -52,6 +52,8 @@ Useful packages used by the template include common modern LaTeX dependencies su
 
 The build scripts support latexmk, xelatex, and pdflatex, with xelatex being a great default for modern setups.
 
+The theme uses Source Sans as its primary sans-serif typeface.
+
 ## How to compile
 
 ### Option 1: PowerShell on Windows

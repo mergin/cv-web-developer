@@ -5,7 +5,8 @@
 \RequirePackage[a4paper,margin=1.55cm]{geometry}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[sfdefault]{roboto}
+% Use a cleaner editorial sans family for resume typography.
+\RequirePackage[default]{sourcesans}
 
 % General typography and layout helpers.
 \RequirePackage{microtype}
@@ -42,22 +43,19 @@
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{0pt}
+\emergencystretch=0.8em
 \urlstyle{same}
 \hypersetup{colorlinks=true,urlcolor=ink,linkcolor=ink}
 
-% Widths used by two-column CV entry macros.
-\newlength{\cventryleftwidth}
-\newlength{\cventryrightwidth}
-\newlength{\cventrygap}
-\setlength{\cventryleftwidth}{0.36\linewidth}
-\setlength{\cventryrightwidth}{0.61\linewidth}
-\setlength{\cventrygap}{0.03\linewidth}
+% The CV entry layout uses widths derived from the local column linewidth.
 
 % Section headings use uppercase labels with a short underline accent.
+% A full-width muted rule is drawn above each section to visually separate content blocks.
 \titleformat{\section}
   {\normalfont\large\bfseries\color{ink}}
   {}
   {0em}
+  % {{\color{line}\rule{\linewidth}{0.55pt}}\vspace{0.3em}\MakeUppercase}
   {\MakeUppercase}
   [\vspace{-1.0em}{\color{ink}\rule{1.8cm}{0.8pt}}]
 \titlespacing*{\section}{0pt}{0.75em}{2em}
@@ -113,15 +111,11 @@
 % Standard two-column CV entry.
 % #1 role/title, #2 company or institution, #3 date/location line, #4 support line.
 \newcommand{\cventry}[4]{%
-  \begin{minipage}[t]{\cventryleftwidth}
-    {\bfseries #2}\par
-    \smallmuted{#4}\par
-  \end{minipage}\hfill
-  \begin{minipage}[t]{\cventryrightwidth}
-    {\bfseries\MakeUppercase{#1}}\par
-    \smallmuted{#3}\par
-  \end{minipage}\par
-  \vspace{0.1em}
+  \noindent%
+  \begin{tabular*}{\linewidth}{@{}>{\RaggedRight\arraybackslash}p{\dimexpr0.39\linewidth\relax}@{\hspace{\dimexpr0.03\linewidth\relax}}>{\RaggedRight\arraybackslash}p{\dimexpr0.56\linewidth\relax}@{}}%
+    {\bfseries #2}\par\smallmuted{#4} & {\bfseries\MakeUppercase{#1}}\par\smallmuted{#3}%
+  \end{tabular*}\par%
+  \vspace{0.1em}%
 }
 
 % Project entry with project name, date range, and short description.
