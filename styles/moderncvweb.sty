@@ -5,8 +5,9 @@
 \RequirePackage[a4paper,margin=1.55cm]{geometry}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-% Use a cleaner editorial sans family for resume typography.
-\RequirePackage[default]{sourcesans}
+% Use a standard sans family that is broadly available in TeX distributions.
+\RequirePackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
 
 % General typography and layout helpers.
 \RequirePackage{microtype}
@@ -97,24 +98,32 @@
 
 % Skill row with a text label and a minimalist horizontal proficiency bar.
 \newcommand{\cvskill}[2]{%
-  \begin{tabularx}{\linewidth}{@{}Xr@{}}
-    \textbf{#1} &
-    \begin{tikzpicture}[baseline=-0.6ex]
-      % Background track.
-      \fill[line] (0,0) rectangle (2.1,0.085);
-      % Filled portion scaled from a 1-5 rating.
-      \fill[ink] (0,0) rectangle ({(#2/5)*2.1},0.085);
-    \end{tikzpicture}
-  \end{tabularx}\par\vspace{0.28em}
+  \noindent%
+  \parbox[t]{0.73\linewidth}{\RaggedRight\textbf{#1}}%
+  \hfill%
+  \begin{tikzpicture}[baseline=-0.6ex]%
+    % Background track.
+    \fill[line] (0,0) rectangle (2.1,0.085);%
+    % Filled portion scaled from a 1-5 rating.
+    \fill[ink] (0,0) rectangle ({(#2/5)*2.1},0.085);%
+  \end{tikzpicture}%
+  \par\vspace{0.28em}
 }
 
 % Standard two-column CV entry.
 % #1 role/title, #2 company or institution, #3 date/location line, #4 support line.
 \newcommand{\cventry}[4]{%
   \noindent%
-  \begin{tabular*}{\linewidth}{@{}>{\RaggedRight\arraybackslash}p{\dimexpr0.39\linewidth\relax}@{\hspace{\dimexpr0.03\linewidth\relax}}>{\RaggedRight\arraybackslash}p{\dimexpr0.56\linewidth\relax}@{}}%
-    {\bfseries #2}\par\smallmuted{#4} & {\bfseries\MakeUppercase{#1}}\par\smallmuted{#3}%
-  \end{tabular*}\par%
+  \begin{minipage}[t]{0.39\linewidth}%
+    \vspace{0pt}%
+    \RaggedRight%
+    {\bfseries #2}\par\smallmuted{#4}%
+  \end{minipage}\hfill%
+  \begin{minipage}[t]{0.56\linewidth}%
+    \vspace{0pt}%
+    \RaggedRight%
+    {\bfseries\MakeUppercase{#1}}\par\smallmuted{#3}%
+  \end{minipage}\par%
   \vspace{0.1em}%
 }
 

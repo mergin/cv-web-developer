@@ -10,7 +10,7 @@ usage() {
 Usage: scripts/build.sh [build|clean]
 
 Commands:
-  build   Build cv.tex and cover-letter.tex (default)
+  build   Build cv.tex, cv-ats.tex, and cover-letter.tex (default)
   clean   Remove LaTeX intermediate files in root and output/
 EOF
 }
@@ -66,6 +66,7 @@ COMMAND="${1:-build}"
 case "$COMMAND" in
   build)
     build_doc cv.tex
+    build_doc cv-ats.tex
     build_doc cover-letter.tex
 
     echo

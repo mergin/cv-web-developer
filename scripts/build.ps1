@@ -39,6 +39,7 @@ function Build-Document {
 }
 
 Build-Document 'cv.tex'
+Build-Document 'cv-ats.tex'
 Build-Document 'cover-letter.tex'
 
 Write-Host ''

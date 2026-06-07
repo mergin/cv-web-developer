@@ -5,7 +5,7 @@ A minimalist CV and cover letter template inspired by modern portfolio-style res
 ## Features
 
 - Modern, clean LaTeX design with strong typography and spacing
-- Generates both a CV PDF and a cover letter PDF
+- Generates a designed CV PDF, an ATS-friendly CV PDF, and a cover letter PDF
 - Modular structure with separate section files
 - Skill matrix divided into:
   - Frameworks
@@ -22,6 +22,7 @@ A minimalist CV and cover letter template inspired by modern portfolio-style res
 cv-web-developer/
 ├── README.md
 ├── cv.tex
+├── cv-ats.tex
 ├── cover-letter.tex
 ├── output/
 │   └── .gitkeep
@@ -52,7 +53,7 @@ Useful packages used by the template include common modern LaTeX dependencies su
 
 The build scripts support latexmk, xelatex, and pdflatex, with xelatex being a great default for modern setups.
 
-The theme uses Source Sans as its primary sans-serif typeface.
+The theme uses a standard Latin Modern sans-serif setup for broad TeX compatibility.
 
 ## How to compile
 
@@ -93,6 +94,8 @@ If you prefer compiling manually:
 ```bash
 pdflatex -output-directory=output cv.tex
 pdflatex -output-directory=output cv.tex
+pdflatex -output-directory=output cv-ats.tex
+pdflatex -output-directory=output cv-ats.tex
 pdflatex -output-directory=output cover-letter.tex
 pdflatex -output-directory=output cover-letter.tex
 ```
@@ -119,6 +122,7 @@ Each skill section is already arranged from highest rating to lowest rating, so 
 After a successful build, you should see:
 
 - `output/cv.pdf`
+- `output/cv-ats.pdf`
 - `output/cover-letter.pdf`
 
 ## Recommended editing workflow
