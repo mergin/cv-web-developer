@@ -1,6 +1,9 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{styles/moderncvweb}
 
+\newif\ifshowreferences
+\showreferencesfalse
+
 \begin{document}
 \input{sections/profile}
 
@@ -33,8 +36,10 @@
 \vspace{1.5em}
 
 % References section with a simple placeholder line.
+\ifshowreferences
 \section{References}
 \smallmuted{Available on request.}\par
+\fi
 \end{paracol}
 
 \end{document}
