@@ -24,6 +24,20 @@
 \RequirePackage{ragged2e}
 \RequirePackage{paracol}
 
+\ExplSyntaxOn
+% True when the provided value is a plain numeric proficiency score.
+\prg_new_conditional:Npnn \cvweb_if_numeric:n #1 { TF }
+  {
+    \regex_match:nnTF { \A \s* [0-9]+ (?:\.[0-9]+)? \s* \Z } {#1}
+      { \prg_return_true: }
+      { \prg_return_false: }
+  }
+\NewDocumentCommand{\cvwebifnumericTF}{m m m}
+  {
+    \cvweb_if_numeric:nTF {#1} {#2} {#3}
+  }
+\ExplSyntaxOff
+
 % Optional icon support. When Font Awesome is unavailable, the theme falls back
 % to plain text markers so the documents still compile.
 \newif\ifcwhasicons
@@ -114,12 +128,17 @@
   \noindent%
   \parbox[t]{0.73\linewidth}{\RaggedRight\textbf{#1}}%
   \hfill%
-  \begin{tikzpicture}[baseline=-0.6ex]%
-    % Background track.
-    \fill[line] (0,0) rectangle (2.1,0.085);%
-    % Filled portion scaled from a 1-5 rating.
-    \fill[ink] (0,0) rectangle ({(#2/5)*2.1},0.085);%
-  \end{tikzpicture}%
+  \cvwebifnumericTF{#2}{%
+    \begin{tikzpicture}[baseline=-0.6ex]%
+      % Background track.
+      \fill[line] (0,0) rectangle (2.1,0.085);%
+      % Filled portion scaled from a 1-5 rating.
+      \fill[ink] (0,0) rectangle ({(#2/5)*2.1},0.085);%
+    \end{tikzpicture}%
+  }{%
+    % Non-numeric levels are shown as text labels (e.g., Native, Professional C1).
+    \parbox[t]{0.23\linewidth}{\RaggedRight\mbox{\smallmuted{\textbf{#2}}}}%
+  }%
   \par\vspace{0.28em}
 }
 
