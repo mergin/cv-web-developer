@@ -2,11 +2,12 @@
 % Profile Data Definitions
 % =========================
 % Centralized personal fields reused by CV and cover-letter templates.
-\newcommand{\ProfileName}{David Prieto}
+\newcommand{\ProfileName}{David~Prieto}
 \newcommand{\ProfileTitle}{Senior Frontend \& Web Developer}
 \newcommand{\ProfilePhone}{+34 684 15 39 06}
 \newcommand{\ProfileEmail}{dprietotramites@gmail.com}
 \newcommand{\ProfileAddress}{Barcelona, Spain}
+\newcommand{\ProfileLinkedIn}{david-prieto-928577aa}
 \newcommand{\ProfileGitHub}{github.com/mergin}
 \newcommand{\ProfileSummary}{Senior frontend and web developer with 10+ years of experience delivering banking platforms, mobile apps, and design systems across regulated and enterprise environments. Strong in Angular and Ionic ecosystems, with a focus on code quality, maintainability, accessibility, and reusable UI architecture.}
 
@@ -23,8 +24,8 @@
   \vspace{0.7em}%
 
   % Left identity column.
-  % Width split with the right column is 0.58 / 0.38 (plus hfill gap).
-  \noindent\begin{minipage}[t]{0.58\linewidth}%
+  % Width split with the right column is 0.64 / 0.32 (plus hfill gap).
+  \noindent\begin{minipage}[t]{0.64\linewidth}%
     % Ensure top alignment baseline for the minipage.
     \vspace{0pt}%
     % Primary identity line.
@@ -35,7 +36,7 @@
     {\large \ProfileTitle}\par%
   \end{minipage}\hfill%
   % Right contact column.
-  \begin{minipage}[t]{0.38\linewidth}%
+  \begin{minipage}[t]{0.32\linewidth}%
     % Ensure top alignment baseline for the minipage.
     \vspace{0pt}%
     % Right-align contact lines and icons.
@@ -50,6 +51,10 @@
     \vspace{0.30em}%
     % Location.
     \small \ProfileAddress\enspace \cvMapIcon\par%
+    % Vertical rhythm between contact items.
+    \vspace{0.30em}%
+    % LinkedIn profile link.
+    \small \href{https://www.linkedin.com/in/\ProfileLinkedIn}{\ProfileLinkedIn}\enspace \cvLinkedInIcon\par%
     % Vertical rhythm between contact items.
     \vspace{0.30em}%
     % GitHub profile link.
