@@ -34,6 +34,7 @@ cv-web-developer/
 │   ├── skills.tex
 │   ├── work-experience.tex
 │   ├── projects.tex
+│   ├── responsibilities-achievements.tex
 │   ├── education.tex
 │   └── languages.tex
 └── styles/
@@ -110,6 +111,7 @@ Update the content in these files:
 - Skills and ratings: `sections/skills.tex`
 - Work history: `sections/work-experience.tex`
 - Projects: `sections/projects.tex`
+- Responsibilities and achievements: `sections/responsibilities-achievements.tex`
 - Education: `sections/education.tex`
 - Spoken languages: `sections/languages.tex`
 
