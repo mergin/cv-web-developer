@@ -1,5 +1,12 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{styles/moderncvweb}
+\newcommand{\atssection}[1]{%
+\vspace{1em}%
+\noindent{\large\bfseries #1}\par%
+\vspace{-0.3em}%
+\noindent{\color{line}\rule{\linewidth}{0.45pt}}\par%
+\vspace{0.5em}%
+}
 
 \begin{document}
 \input{sections/profile}
@@ -8,21 +15,23 @@
 \vspace{0.15em}
 {\large \ProfileTitle}\par
 \vspace{0.3em}
-\small \ProfileAddress\, | \ProfilePhone\, | \href{mailto:\ProfileEmail}{\ProfileEmail}\, | \href{https://\ProfileGitHub}{\ProfileGitHub}\par
+\small \ProfileAddress\, | \ProfilePhone\, | \href{mailto:\ProfileEmail}{\ProfileEmail}\, | \href{https://www.linkedin.com/in/\ProfileLinkedIn}{\ProfileLinkedIn}\, | \href{https://\ProfileGitHub}{\ProfileGitHub}\par
 
 \vspace{1em}
 
-\section{Profile}
+\atssection{Profile}
 Frontend-focused senior web developer with 10+ years of experience building accessible, performant digital products in Angular, React, Next.js, Ionic, and TypeScript. Strong background in design systems, microfrontends, testing, and close collaboration with product and design teams.
 
-\section{Core Skills}
+\vspace{1em}
+\atssection{Core Skills}
 Frontend: Angular, React, Next.js, Ionic, TypeScript, JavaScript, HTML, CSS, Sass, StencilJS, LitElement, Vue, Nuxt\par
 Architecture: Design systems, microfrontends, Domain-Driven Design, Feature-Driven Development, reusable component libraries\par
 Testing: Storybook, Vitest, Karma, Jasmine, Jest, Testing Library\par
 Tools: Git, GitHub, ESLint, Prettier, Docker, CI/CD pipelines, Swagger / OpenAPI, Postman\par
 Backend and APIs: Node.js, Express, Spring Boot, REST, JSON, JWT, SQL\par
 
-\section{Work Experience}
+\vspace{1em}
+\atssection{Work Experience}
 \textbf{BrightPixel Studio} --- Senior Frontend Developer \hfill 2022 -- Present\par
 Led migration of a marketing platform to Next.js and TypeScript, improving Core Web Vitals and reducing page-load time by 38\%. Built a reusable component library and a Storybook workflow that shortened UI delivery cycles across product squads.\par
 \vspace{0.65em}
@@ -34,7 +43,8 @@ Developed responsive e-commerce features with React, Redux, and Node.js for mult
 \textbf{Blue Leaf Digital} --- Frontend Developer \hfill 2017 -- 2019\par
 Delivered custom brand websites and campaign microsites with a focus on pixel-perfect execution. Collaborated with UX teams to translate visual concepts into scalable interfaces using modular Sass and JavaScript.\par
 
-\section{Selected Projects}
+\vspace{1em}
+\atssection{Selected Projects}
 \textbf{Private Banking \& Business (PBB)} --- Angular 16-20, Reactive Forms, Karma/Jasmine\par
 Built app and component library from scratch, upgraded Angular 16 to 20, and aligned the front end with Java Spring Boot microservices using DDD patterns, Native Federation readiness, and CI/CD with GitHub Actions.\par
 \vspace{0.4em}
@@ -50,14 +60,17 @@ Built the design system from scratch, establishing reusable components and share
 \textbf{Galatea Design System} --- Angular, StencilJS, Storybook, Microfrontends\par
 Served as technical lead during first release support, delivered core web components, and implemented the first microfrontend to define the rollout integration pattern.\par
 
+\vspace{1em}
+\atssection{Responsibilities and Achievements}
 \input{sections/responsibilities-achievements}
 
-\section{Education}
+\atssection{Education}
 \textbf{B.Sc. in Computer Science}, Simon Bolivar University\par
 Focus on software engineering, web technologies, and human-computer interaction with a strong emphasis on product-oriented development.\par
 
-\section{Languages}
+\vspace{1em}
+\atssection{Languages}
 Spanish: Native\par
-English: Professional working proficiency\par
+English: Professional working proficiency (C1)\par
 
 \end{document}
